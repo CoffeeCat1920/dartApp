@@ -1,0 +1,12 @@
+{
+  "title": "Polaroid",
+  "chapters": [
+    {"name": "Executive Summary", "page": 1},
+    {"name": "Competitive Landscape", "page": 2},
+    {"name": "Core Philosophy", "page": 3},
+    {"name": "Marketing Approach", "page": 4},
+    {"name": "Funding", "page": 5},
+    {"name": "Marketing", "page": 6},
+    {"name": "Evaluation", "page": 7}
+  ]
+}
