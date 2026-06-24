@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:book/pages/chapter_page.dart';
 import 'package:book/pages/template_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,18 +13,13 @@ Future<void> _loadBook(BuildContext context, String bookName) async {
   final raw = await rootBundle.loadString(
     'assets/books/$bookName/config.json',
   ); // ← fixed path
-  final data = jsonDecode(raw);
-  final chapters = List<Map<String, dynamic>>.from(data['chapters'])
-      .map((c) => c['name'] as String) // ← extract chapter names
-      .toList();
+  final Map<String, dynamic> data = jsonDecode(raw);
 
   Navigator.push(
     context,
     MaterialPageRoute(
-      builder: (context) => TemplatePage(
-        title: bookName, // ← use bookName as title
-        options: chapters, // ← pass chapter names
-      ),
+      builder: (context) =>
+          ChapterPage(bookTitle: bookName, data : data),
     ),
   );
 }
@@ -31,7 +27,7 @@ Future<void> _loadBook(BuildContext context, String bookName) async {
 final _bookNamesFuture = _loadBookNames();
 
 class BookPage extends StatelessWidget {
-  const BookPage ({super.key});
+  const BookPage({super.key});
 
   @override
   Widget build(BuildContext context) {
