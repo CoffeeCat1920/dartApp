@@ -17,11 +17,12 @@ Future<List<BookContent>> _loadBookNames(String author) async {
 }
 
 Future<void> _loadBook(BuildContext context, String authorName, String bookName) async {
+  print('assets/books/$authorName/$bookName.pdf');
   Navigator.push(
     context,
     MaterialPageRoute(
       builder: (context) =>
-          PdfPage(assetPath: 'assets/books/$bookName/book.pdf', pageNo: 1),
+          PdfPage(assetPath: 'assets/books/$authorName/$bookName.pdf', pageNo: 1),
     ),
   );
 }

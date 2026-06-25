@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 class PdfPage extends StatefulWidget {
   final String assetPath;
   final int pageNo;
+  final String bookTitle;
 
-  const PdfPage({super.key, required this.assetPath, required this.pageNo});
+  const PdfPage({super.key, required this.assetPath, required this.pageNo, required this.bookTitle});
 
   @override
   State<PdfPage> createState() => _PdfPageState();
@@ -32,10 +33,10 @@ class _PdfPageState extends State<PdfPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Page ${widget.pageNo}')),
-      body: PdfView(           // ← PdfView, not PdfViewPinch
-        scrollDirection: Axis.vertical,
+      appBar: AppBar(title: Text(widget.bookTitle)),
+      body: PdfView(           
         controller: _controller,
+        scrollDirection: Axis.vertical,
       ),
     );
  }
