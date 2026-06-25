@@ -34,6 +34,7 @@ class _PdfPageState extends State<PdfPage> {
     return Scaffold(
       appBar: AppBar(title: Text('Page ${widget.pageNo}')),
       body: PdfView(           // ← PdfView, not PdfViewPinch
+        scrollDirection: Axis.vertical,
         controller: _controller,
       ),
     );

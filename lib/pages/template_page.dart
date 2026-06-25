@@ -1,10 +1,11 @@
+import 'package:book/data/book_content.dart';
 import 'package:book/widgets/options_list.dart';
 import 'package:book/widgets/my_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class TemplatePage extends StatelessWidget {
   final String title;
-  final List<String> options;
+  final List<BookContent> options;
   final void Function(String)? onOptionTap;
 
   const TemplatePage({
@@ -17,7 +18,8 @@ class TemplatePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(title: title),
+      backgroundColor: Colors.grey.shade200,
+      appBar: MyAppBar(title: title,),
       body: OptionsList(options: options, onTap: onOptionTap),
     );
   }

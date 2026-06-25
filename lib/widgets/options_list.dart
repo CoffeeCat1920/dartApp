@@ -1,7 +1,8 @@
+import 'package:book/data/book_content.dart';
 import 'package:flutter/material.dart';
 
 class OptionsList extends StatelessWidget {
-  final List<String> options;
+  final List<BookContent> options;
   final void Function(String)? onTap;
 
   const OptionsList({super.key, required this.options, this.onTap});
@@ -11,8 +12,8 @@ class OptionsList extends StatelessWidget {
     return ListView.builder(
       itemCount: options.length,
       itemBuilder: (context, index) => ListTile(
-        title: Text(options[index]),
-        onTap: () => onTap?.call(options[index]),
+        title: Text(options[index].displayName, textAlign: TextAlign.right),
+        onTap: () => onTap?.call(options[index].folderName),
       ),
     );
   }
