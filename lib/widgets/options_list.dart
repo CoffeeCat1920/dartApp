@@ -13,7 +13,7 @@ class OptionsList extends StatelessWidget {
       itemCount: options.length,
       itemBuilder: (context, index) => ListTile(
         title: Text(options[index].displayName, textAlign: TextAlign.right),
-        onTap: () => onTap?.call(options[index].folderName),
+        onTap: () => onTap?.call(options[index].pdfName),
       ),
     );
   }

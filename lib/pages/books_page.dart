@@ -7,13 +7,13 @@ import 'package:flutter/services.dart';
 
 Future<List<BookContent>> _loadBookNames() async {
   final raw = await rootBundle.loadString('assets/books/list.json');
-  final List<String> decoded = jsonDecode(raw);
+  final decoded = jsonDecode(raw) as List;
 
-  final List<BookContent> items = decoded
+  final List<BookContent> books = decoded
       .map((e) => BookContent.fromJson(e as Map<String, dynamic>))
       .toList();
 
-  return items;
+  return books;
 }
 
 Future<void> _loadBook(BuildContext context, String bookName) async {

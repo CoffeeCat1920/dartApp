@@ -1,23 +1,23 @@
 class BookContent {
   final String displayName;
-  final String folderName;
+  final String pdfName;
 
   BookContent({
     required this.displayName,
-    required this.folderName,
+    required this.pdfName,
   });
 
   factory BookContent.fromJson(Map<String, dynamic> json) {
     return BookContent(
       displayName: json['display_name'],
-      folderName: json['folder_name'],
+      pdfName: json['pdf_name'],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
       'display_name': displayName,
-      'folder_name': folderName,
+      'pdf_name': pdfName,
     };
   }
 }
