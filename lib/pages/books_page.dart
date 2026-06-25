@@ -17,7 +17,6 @@ Future<List<BookContent>> _loadBookNames(String author) async {
 }
 
 Future<void> _loadBook(BuildContext context, String authorName, String bookName) async {
-  print('assets/books/$authorName/$bookName.pdf');
   Navigator.push(
     context,
     MaterialPageRoute(
