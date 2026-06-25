@@ -1,6 +1,5 @@
 import 'package:book/data/author_content.dart';
-import 'package:book/data/book_content.dart';
-import 'package:book/widgets/options_list.dart';
+import 'package:book/widgets/author_option_list.dart';
 import 'package:book/widgets/my_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +20,7 @@ class AuthorTemplatePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       appBar: MyAppBar(title: title,),
-      body: OptionsList(options: options, onTap: onOptionTap),
+      body: AuthorOptionsList(options: options, onTap: onOptionTap),
     );
   }
 }

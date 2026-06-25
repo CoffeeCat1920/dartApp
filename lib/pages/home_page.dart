@@ -1,4 +1,4 @@
-import 'package:book/pages/books_page.dart';
+import 'package:book/pages/author_page.dart';
 import 'package:flutter/material.dart';
 
 
@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container (
       color: Colors.grey.shade50,
-      child: BookPage(),
+      child: AuthorPage(),
     );
   }
 }

@@ -1,8 +1,7 @@
 import 'dart:convert';
 import 'package:book/data/author_content.dart';
 import 'package:book/pages/author_template_page.dart';
-import 'package:book/pages/chapter_page.dart';
-import 'package:book/pages/template_page.dart';
+import 'package:book/pages/books_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -17,16 +16,11 @@ Future<List<AuthorContent>> _loadAuthorNames() async {
   return authors;
 }
 
-Future<void> _loadBooks(BuildContext context, String bookName) async {
-  final raw = await rootBundle.loadString(
-    'assets/books/$bookName/config.json',
-  ); // ← fixed path
-  final Map<String, dynamic> data = jsonDecode(raw);
-
+Future<void> _loadAuthor(BuildContext context, String authorName) async {
   Navigator.push(
     context,
     MaterialPageRoute(
-      builder: (context) => ChapterPage(bookTitle: bookName, data: data),
+      builder: (context) => BookPage(authorName: authorName),
     ),
   );
 }
@@ -48,8 +42,8 @@ class AuthorPage extends StatelessWidget {
         return AuthorTemplatePage(
           title: "کتاب",
           options: snapshot.data!,
-          onOptionTap: (bookName) =>
-              _loadBooks(context, bookName), // ← pass context
+          onOptionTap: (authorName) =>
+              _loadAuthor(context, authorName), // ← pass context
         );
       },
     );
