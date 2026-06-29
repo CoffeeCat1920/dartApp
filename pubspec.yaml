@@ -62,6 +62,7 @@ flutter:
   assets:
     - assets/books/
     - assets/books/jhon_alia/
+    - assets/books/Zameer_Akhtar/
     - assets/background/
 
   # - images/a_dot_burr.jpeg
